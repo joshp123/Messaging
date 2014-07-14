@@ -18,7 +18,12 @@
         </activity>
         <activity
             android:name=".DisplayMessageActivity"
-            android:label="@string/title_activity_display_message" >
+            android:label="@string/title_activity_display_message"
+            android:parentActivityName="uk.ac.uniofleeds.unijp.messaging.MyActivity"
+         >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="uk.ac.uniofleeds.unijp.messaging.MainActivity" />
+
         </activity>
     </application>
 

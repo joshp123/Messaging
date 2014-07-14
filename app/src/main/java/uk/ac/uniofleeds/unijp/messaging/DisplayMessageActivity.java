@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import uk.ac.uniofleeds.unijp.messaging.R;
+import android.content.Intent;
+import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
 
@@ -12,6 +14,16 @@ public class DisplayMessageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+
+        TextView myTextView = new TextView(this);
+        myTextView.setTextSize(40);
+        myTextView.setText(message);
+
+        setContentView(myTextView);
+
+
     }
 
 
