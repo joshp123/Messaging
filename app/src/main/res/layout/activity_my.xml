@@ -9,19 +9,20 @@
     android:orientation="horizontal"
     tools:context=".MyActivity">
 
-    <TextView
-        android:id="@+id/lucien"
-        android:text="Lucien Owns This"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<TextView-->
+        <!--android:id="@+id/lucien"-->
+        <!--android:text="Lucien Owns This"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
-    <TextView
-        android:text="@string/owner"
-        android:layout_below="@+id/lucien"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<TextView-->
+        <!--android:text="@string/owner"-->
+        <!--android:layout_below="@+id/lucien"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <EditText android:id="@+id/edit_message"
+        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/edit_message" />
