@@ -11,6 +11,10 @@ import android.view.View;
 
 import android.content.Intent;
 import android.widget.EditText;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
 
 public class MyActivity extends Activity {
 
@@ -19,6 +23,15 @@ public class MyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // begin Parse push notifications setup functions
+
+        Parse.initialize(this, "c6rOOGYY9b0acATzLvb3CbxhBQd5wLvJ9euDosuQ", "Bdd5YrYMdDK2nkZfivyRiQjPFdJrL3mBVgWCW4GB");
+        PushService.setDefaultPushCallback(this, DisplayMessageActivity.class);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        // end Parse push notifications setup functions
+
         setContentView(R.layout.activity_my);
     }
 
