@@ -3,6 +3,7 @@ package uk.ac.uniofleeds.unijp.messaging;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
+import com.parse.ParsePush;
 
 public class MyActivity extends Activity {
 
@@ -29,6 +31,8 @@ public class MyActivity extends Activity {
         Parse.initialize(this, "c6rOOGYY9b0acATzLvb3CbxhBQd5wLvJ9euDosuQ", "Bdd5YrYMdDK2nkZfivyRiQjPFdJrL3mBVgWCW4GB");
         PushService.setDefaultPushCallback(this, DisplayMessageActivity.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        Log.d("gbs", ParseInstallation.getCurrentInstallation().toString());
 
         // end Parse push notifications setup functions
 
@@ -60,9 +64,21 @@ public class MyActivity extends Activity {
     public void sendMessage(View view)
     {
         // do something with the button
+
+        // create an intent to pass off the message to new activity
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+
+        // pull the text from the textField in myActivity
         EditText myTextEditField = (EditText) findViewById(R.id.edit_message);
         String message = myTextEditField.getText().toString();
+
+        // send it as a push notification via Parse.
+
+        ParsePush pushMessage = new ParsePush();
+        pushMessage.setChannel("all");
+        pushMessage.setMessage(message);
+        pushMessage.sendInBackground();
+
         intent.putExtra(EXTRA_MESSAGE, message);
 
         startActivity(intent);
