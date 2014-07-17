@@ -2,33 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.ac.uniofleeds.unijp.messaging" >
 
+
+    <!--begin Parse block -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+      IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission android:protectionLevel="signature"
+        android:name="uk.ac.uniofleeds.unijp.messaging.permission.C2D_MESSAGE" />
+    <uses-permission android:name="uk.ac.uniofleeds.unijp.messaging.permission.C2D_MESSAGE" />
+
+    <!-- end Parse block -->
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        <!--begin Parse block -->
-
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
-        <uses-permission android:name="android.permission.VIBRATE" />
-        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-        <!--
-          IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
-          to match your app's package name + ".permission.C2D_MESSAGE".
-        -->
-        <permission android:protectionLevel="signature"
-            android:name="uk.ac.uniofleeds.unijp.messaging.permission.C2D_MESSAGE" />
-        <uses-permission android:name="uk.ac.uniofleeds.unijp.messaging.permission.C2D_MESSAGE" />
-
-        <!-- end Parse block -->
-
-
 
         <activity
             android:name=".MyActivity"
