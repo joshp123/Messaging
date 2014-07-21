@@ -32,8 +32,11 @@ public class MyActivity extends Activity {
         PushService.setDefaultPushCallback(this, DisplayMessageActivity.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
         PushService.subscribe(this, "test", DisplayMessageActivity.class);
+        // subscribe to the "test" channel
 
-        Log.d("gbs", ParseInstallation.getCurrentInstallation().toString());
+        Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE).
+
+                Log.d("gbs", ParseInstallation.getCurrentInstallation().toString());
 
         // end Parse push notifications setup functions
 

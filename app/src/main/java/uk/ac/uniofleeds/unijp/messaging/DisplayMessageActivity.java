@@ -15,7 +15,9 @@ public class DisplayMessageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
         Intent intent = getIntent();
+
         String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+
 
         TextView myTextView = new TextView(this);
         myTextView.setTextSize(40);
