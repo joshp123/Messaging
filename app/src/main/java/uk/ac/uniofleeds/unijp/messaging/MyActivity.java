@@ -31,6 +31,7 @@ public class MyActivity extends Activity {
         Parse.initialize(this, "c6rOOGYY9b0acATzLvb3CbxhBQd5wLvJ9euDosuQ", "Bdd5YrYMdDK2nkZfivyRiQjPFdJrL3mBVgWCW4GB");
         PushService.setDefaultPushCallback(this, DisplayMessageActivity.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
+        PushService.subscribe(this, "test", DisplayMessageActivity.class);
 
         Log.d("gbs", ParseInstallation.getCurrentInstallation().toString());
 
@@ -75,7 +76,7 @@ public class MyActivity extends Activity {
         // send it as a push notification via Parse.
 
         ParsePush pushMessage = new ParsePush();
-        pushMessage.setChannel("all");
+        pushMessage.setChannel("test");
         pushMessage.setMessage(message);
         pushMessage.sendInBackground();
 
