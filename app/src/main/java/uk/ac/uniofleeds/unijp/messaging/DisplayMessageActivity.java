@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import uk.ac.uniofleeds.unijp.messaging.R;
 import android.content.Intent;
 import android.widget.TextView;
+import com.parse.ParseAnalytics;
 
 public class DisplayMessageActivity extends Activity {
 
@@ -14,13 +15,22 @@ public class DisplayMessageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+        // ^ set up the Activity with the XML in /layout
+
+        // get data from the Parse GCM push notification that launched it (if present)
+        ParseAnalytics.trackAppOpened(getIntent());
+
+        // get the intent from the MyActivity.java main activity, that displays the message
         Intent intent = getIntent();
 
+        // pull the EXTRA_MESSAGE string out of the intent passed by MyActivity
         String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
 
-
+        // set up a TextView on the screen
         TextView myTextView = new TextView(this);
         myTextView.setTextSize(40);
+
+        // populate the TextView with the
         myTextView.setText(message);
 
         setContentView(myTextView);

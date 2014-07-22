@@ -5,6 +5,9 @@
 
     <!--begin Parse block -->
 
+    <!--the following block of boilerplate code implements the permissions for Parse, and
+    enables push notifications & GCM services. -->
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -50,6 +53,8 @@
 
         <!-- begin Parse block -->
 
+        <!-- the following boiler-plate code allows the Parse service & GCM to function. -->
+
         <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
@@ -71,6 +76,11 @@
         </receiver>
 
         <!-- end Parse block -->
+
+
+
+
+
     </application>
 
 </manifest>
