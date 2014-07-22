@@ -78,6 +78,15 @@
         <!-- end Parse block -->
 
 
+        <!-- the following Receiver should allow us to pull data from the Parse push notification
+        as it is received.
+        I.e. user taps the notification, and our DisplayMessageActivity is launched, and takes the text
+        from the notification, and displays it.-->
+
+        <receiver android:name="pushReceiver">
+            <intent-filter>  <action android:name="MyAction"> </action>
+            </intent-filter>
+        </receiver>
 
 
 
